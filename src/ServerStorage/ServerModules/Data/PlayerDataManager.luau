@@ -12,7 +12,7 @@ local NotificationEvent = ClientEvents.Notification
 
 local PlayerDataManager = {}
 
-local DataStore = ProfileStore.New("TestData2", DataTemplate)
+local DataStore = ProfileStore.New("TestData3", DataTemplate)
 
 local Profiles: { [Player]: typeof(DataStore:StartSessionAsync()) } = {}
 
