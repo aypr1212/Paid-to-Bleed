@@ -1,0 +1,14 @@
+[package]
+name = "detourious/loleris-profilestore"
+description = "Loleris' ProfileStore module. Personal upload."
+license = "MIT"
+authors = ["loleris"]
+version = "1.0.0"
+
+registry = "https://github.com/upliftgames/wally-index"
+realm = "shared"
+
+exclude = ["**"]
+include = ["src", "src/*", "default.project.json", "wally.lock", "wally.toml"]
+
+[dependencies]

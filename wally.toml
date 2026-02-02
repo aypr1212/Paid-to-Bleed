@@ -1,0 +1,9 @@
+[package]
+name = "anita/paid-to-bleed"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+zoneplus = "mattschrubb/zoneplus@3.2.0"
+ProfileStore = "detourious/loleris-profilestore@1.0.0"

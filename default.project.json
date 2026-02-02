@@ -1,0 +1,39 @@
+{
+  "name": "Paid to Bleed",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "Packages": {
+        "$path": "Packages"
+      },
+      "ClientStartUp": {
+        "$path": "src/ReplicatedStorage/ClientStartUp"
+      },
+      "ClientModules": {
+        "$path": "src/ReplicatedStorage/ClientModules"
+      },
+      "Modules": {
+        "$path": "src/ReplicatedStorage/Modules"
+      }
+    },
+
+    "ServerScriptService": {
+      "Server": {
+        "$path": "src/ServerScriptService/server"
+      }
+    },
+
+    "ServerStorage": {
+      "ServerModules": {
+        "$path": "src/ServerStorage/ServerModules"
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$path": "src/StarterPlayerScripts"
+      }
+    }
+  }
+}
