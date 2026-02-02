@@ -1,6 +1,5 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local ThirdPartyUserService = game:GetService("ThirdPartyUserService")
 local UserInputService = game:GetService("UserInputService")
 
 --// MODULES --\\
