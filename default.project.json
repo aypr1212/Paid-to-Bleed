@@ -7,9 +7,6 @@
       "Packages": {
         "$path": "Packages"
       },
-      "ClientStartUp": {
-        "$path": "src/ReplicatedStorage/ClientStartUp"
-      },
       "ClientModules": {
         "$path": "src/ReplicatedStorage/ClientModules"
       },
