@@ -19,6 +19,7 @@ export type PlayerData = {
 	Name: string,
 	CharacterCompleted: boolean,
 	Gender: string,
+	EquippedWeapon: string,
 }
 
 local DataTemplate: PlayerData = {
@@ -33,6 +34,7 @@ local DataTemplate: PlayerData = {
 	CharacterCompleted = false,
 	Gender = nil,
 	Name = "",
+	EquippedWeapon = "Fist",
 }
 
 return DataTemplate

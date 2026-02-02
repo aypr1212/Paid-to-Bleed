@@ -62,6 +62,7 @@ end
 function CharacterMenuClient.Init()
 	CharacterMenuEvent.OnClientEvent:Connect(function(args)
 		if args == "EnableGui" then
+			print("Enable Gui")
 			CharacterMenu.Enabled = true
 			connectButtons(CharacterMenu)
 		end

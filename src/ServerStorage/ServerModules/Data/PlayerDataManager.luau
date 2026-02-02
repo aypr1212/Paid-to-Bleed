@@ -12,7 +12,7 @@ local NotificationEvent = ClientEvents.Notification
 
 local PlayerDataManager = {}
 
-local DataStore = ProfileStore.New("TestData3", DataTemplate)
+local DataStore = ProfileStore.New("TestData5", DataTemplate)
 
 local Profiles: { [Player]: typeof(DataStore:StartSessionAsync()) } = {}
 
@@ -56,6 +56,11 @@ function PlayerDataManager.HandlePlayer(plr: Player)
 	plr:SetAttribute("Race", profile.Data.Race)
 	plr:SetAttribute("Name", profile.Data.Name)
 
+	local CurrentWeapon = Instance.new("StringValue")
+	CurrentWeapon.Name = "CurrentWeapon"
+	CurrentWeapon.Value = profile.Data.CurrentWeapon or "Fist"
+	CurrentWeapon.Parent = plr
+
 	local character = plr.Character or plr.CharacterAdded:Wait()
 	local humanoid = character:WaitForChild("Humanoid")
 	humanoid.DisplayName = profile.Data.Name
@@ -84,6 +89,19 @@ function PlayerDataManager.IsDataLoaded(plr: Player): boolean
 end
 
 -- Setting data and getting data --
+
+function PlayerDataManager.GetCurrentWeapon(plr: Player): string?
+	if not PlayerDataManager.IsDataLoaded(plr) then
+		return
+	end
+
+	local profile = Profiles[plr]
+	if not profile then
+		return
+	end
+
+	return profile.Data.CurrentWeapon
+end
 
 function PlayerDataManager.GetMoney(plr: Player): number
 	if not PlayerDataManager.IsDataLoaded(plr) then
