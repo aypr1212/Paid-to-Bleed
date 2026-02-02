@@ -1,5 +1,6 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local ThirdPartyUserService = game:GetService("ThirdPartyUserService")
 local UserInputService = game:GetService("UserInputService")
 
 --// MODULES --\\
@@ -17,7 +18,7 @@ local weaponCache = {}
 
 --// VARIABLES --\\
 local animator: Animator
-local equipped: boolean = false
+local equipped: boolean
 local blockTrack: AnimationTrack?
 
 local WeaponsFolder = ReplicatedStorage:WaitForChild("Modules"):WaitForChild("Combat"):WaitForChild("Weapons")
@@ -65,13 +66,16 @@ local function equipWeapon(Character)
 	local equipTrack = animator:LoadAnimation(equipAnimation)
 	equipTrack:Play()
 
+	equipped = true
+
 	--// FIRE TO SERVER HERE TO SET EQUIPPED ATTRIBUTE TO TRUE --\\
+	CombatEvent:FireServer("EquipWeaponRequest", {})
 	return equipTrack.Length
 end
 local function unequipWeapon()
 	equipped = false
 
-	CombatEvent:FireServer("UnequipWeaponRequest", { length = 1 })
+	CombatEvent:FireServer("UnequipWeaponRequest", {})
 end
 
 local function onWeaponChanged(newWeaponName)
@@ -145,8 +149,6 @@ local function Bind()
 			return
 		end
 
-		print("Input")
-
 		if input.UserInputType == Inputs.M1 then
 			print("Attack input detected")
 			-- Attack logic goes here
@@ -155,6 +157,12 @@ local function Bind()
 				return
 			end
 			CombatEvent:FireServer("AttackRequest", {})
+		elseif input.KeyCode == Enum.KeyCode.E then
+			if equipped then
+				unequipWeapon()
+			else
+				equipWeapon(char)
+			end
 		end
 	end)
 
